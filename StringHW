@@ -1,0 +1,17 @@
+public class Main {
+
+    public static String abbrevName(String name) {
+        String[] a = name.split(" ", 4);
+        String b = String.valueOf(a[0].charAt(0));;
+        for(String i : a){
+            if (i== a[0]) continue;
+         b +=(".") +(String.valueOf(i.charAt(0)));
+        }
+        name = b.toString();
+        return name;
+    }
+    public static void main(String[] args) {
+        
+    System.out.println(abbrevName("Bilgin Toprak Beyaz"));
+    }
+}
