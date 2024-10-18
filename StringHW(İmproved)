@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static String abbrevName(String name) {
+        String[] a = name.split(" ", 4);
+        String b = String.valueOf(a[0].charAt(0));
+        for(String i : a){
+            if (i== a[0]) continue;
+            b +=(".") +(String.valueOf(i.charAt(0)));
+        }
+        name = b.toString();
+        return name;
+    }
+    public static void main(String[] args) {
+    Scanner scn = new Scanner(System.in);
+    System.out.println("isminizi Girin");
+        System.out.println(abbrevName(scn.nextLine()));
+    }
+}
