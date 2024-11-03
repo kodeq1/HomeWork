@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int vizeNot ;
+        int finalNot ;
+        while(true){
+            System.out.println("vize notunuzu giriniz:");
+            vizeNot = scanner.nextInt();
+            System.out.println("final notunuzu giriniz:");
+            finalNot = scanner.nextInt();
+            vizeNot = vizeNot*35/100;
+            finalNot =finalNot*65/100;
+            System.out.println("yıl sonu notunuz:"+(vizeNot+finalNot));
+            vizeNot=0;
+            finalNot=0;
+
+        }
+
+        
+    }
+}
