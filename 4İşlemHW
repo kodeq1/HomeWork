@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("kaç tane sayıyla işlem yapacaksınız");
+        int[] Numbers = new int[scanner.nextInt()];
+        int total = 1;
+        int b;
+        while(true){
+            System.out.println("kullanacağınız sayıları giriniz: ");
+            for (int i=0;i<Numbers.length;i++){
+                Numbers[i]=scanner.nextInt();
+        }
+            scanner.nextLine();
+
+            System.out.println("hangi işlemi yapmak istersiniz");
+            System.out.println("1-Çarpma");
+            System.out.println("2-Bölme");
+            System.out.println("3-Toplama");
+            System.out.println("4-Çıkarma");
+            System.out.println("Çıkmak için ise escape yazınız:");
+            String a = scanner.nextLine();
+            if (a == "escape") {break;}
+                else {b = Integer.valueOf(a);}
+            switch (b) {
+                case 1:
+                    for(int i=0;i<Numbers.length;i++){
+                        total *=Numbers[i];
+                    }
+                    System.out.println("işleminizin sonucu: "+ total);
+                    break;
+                case 2:
+                    for(int i=0;i<Numbers.length;i++){
+                        total /=Numbers[i];
+                    }
+                    System.out.println("işleminizin sonucu: "+ total);
+                    break;
+                case 3:
+                    for(int i=0;i<Numbers.length;i++){
+                        total +=Numbers[i];
+                    }
+                    System.out.println("işleminizin sonucu: "+ (total-1));
+                    break;
+                case 4:
+                    for(int i=0;i<Numbers.length;i++){
+                        total -=Numbers[i];
+                    System.out.println("işleminizin sonucu: "+ (total-1));
+                    break;
+
+            }
+
+            }
+
+
+    }
+}
+}
