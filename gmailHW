@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("mailinizi girin");
+        String[] a = scanner.nextLine().split("@");
+        if (a[1].equals("gmail.com")){
+            System.out.println("gamil Kaydedildi");
+        }else {
+            System.out.println("gamil türünde mail giriniz" );
+        }
+}
+}
