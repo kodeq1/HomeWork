@@ -4,8 +4,11 @@
 
 package frc.robot;
 
+import com.revrobotics.CANSparkMax;
+
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.motorcontrol.Spark;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -20,43 +23,81 @@ public class Robot extends TimedRobot {
    */
 
 
-   private Spark leftMotor1  = new spark(0);
-   private Spark leftMotor2  = new spark(1);
-   private Spark rightMotor1  = new spark(3);
-   private Spark rightMotor2  = new spark(4);
+   private CANSparkMax leftMotor1  = new CANSparkMax(0,CANSparkMax.MotorType.kBrushless);
+   private CANSparkMax leftMotor2  = new CANSparkMax(1,CANSparkMax.MotorType.kBrushless);
+   private CANSparkMax rightMotor1  = new CANSparkMax(2,CANSparkMax.MotorType.kBrushless);
+   private CANSparkMax rightMotor2  = new CANSparkMax(3,CANSparkMax.MotorType.kBrushless);
+
+   private Joystick joy1 = new Joystick(0); //placeholder port
   @Override
-  public void robotInit() {}
+  public void robotInit() {
+
+  }
 
   @Override
-  public void robotPeriodic() {}
+  public void robotPeriodic() {
+
+  }
 
   @Override
-  public void autonomousInit() {}
+  public void autonomousInit() {
+
+  }
 
   @Override
-  public void autonomousPeriodic() {}
+  public void autonomousPeriodic() {
+  
+
+
+    
+  }
 
   @Override
-  public void teleopInit() {}
+  public void teleopInit() {
+
+  }
 
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+  double speed = joy1.getRawAxis(1) * 0.6; //placeholder
+  double turn = joy1.getRawAxis(4) * 0.3; //placeholder
+  double left = speed + turn;
+  double right = speed -turn;
+
+
+  leftMotor1.set(left);
+  leftMotor2.set(left);
+  rightMotor1.set(-right);
+  rightMotor2.set(-right);
+  }
 
   @Override
-  public void disabledInit() {}
+  public void disabledInit() {
+
+  }
 
   @Override
-  public void disabledPeriodic() {}
+  public void disabledPeriodic() {
+
+  }
 
   @Override
-  public void testInit() {}
+  public void testInit() {
+
+  }
 
   @Override
-  public void testPeriodic() {}
+  public void testPeriodic() {
+
+  }
 
   @Override
-  public void simulationInit() {}
+  public void simulationInit() {
+
+  }
 
   @Override
-  public void simulationPeriodic() {}
+  public void simulationPeriodic() {
+
+  }
 }
