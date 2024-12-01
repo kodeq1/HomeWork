@@ -4,10 +4,12 @@
 
 package frc.robot;
 
+
 import com.revrobotics.CANSparkMax;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 
 /**
@@ -23,14 +25,22 @@ public class Robot extends TimedRobot {
    */
 
 
-   private CANSparkMax leftMotor1  = new CANSparkMax(0,CANSparkMax.MotorType.kBrushless);
-   private CANSparkMax leftMotor2  = new CANSparkMax(1,CANSparkMax.MotorType.kBrushless);
-   private CANSparkMax rightMotor1  = new CANSparkMax(2,CANSparkMax.MotorType.kBrushless);
-   private CANSparkMax rightMotor2  = new CANSparkMax(3,CANSparkMax.MotorType.kBrushless);
+   private CANSparkMax leftMotor1  = new CANSparkMax(0,CANSparkMax.MotorType.kBrushed);
+   private CANSparkMax leftMotor2  = new CANSparkMax(1,CANSparkMax.MotorType.kBrushed);
+   private CANSparkMax rightMotor1  = new CANSparkMax(2,CANSparkMax.MotorType.kBrushed);
+   private CANSparkMax rightMotor2  = new CANSparkMax(3,CANSparkMax.MotorType.kBrushed);
+
+   DifferentialDrive differentialDrive = new DifferentialDrive(leftMotor1,rightMotor1);
 
    private Joystick joy1 = new Joystick(0); //placeholder port
   @Override
   public void robotInit() {
+
+    leftMotor2.follow(leftMotor1);
+    rightMotor2.follow(rightMotor1);
+    
+    rightMotor1.setInverted(true);
+    
 
   }
 
@@ -59,16 +69,16 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-  double speed = joy1.getRawAxis(1) * 0.6; //placeholder
-  double turn = joy1.getRawAxis(4) * 0.3; //placeholder
-  double left = speed + turn;
-  double right = speed -turn;
+  //double speed = joy1.getRawAxis(1) * 0.6; //placeholder
+  //double turn = joy1.getRawAxis(4) * 0.3; //placeholder
+  //double left = speed + turn;
+  //double right = speed -turn;
 
 
-  leftMotor1.set(left);
-  leftMotor2.set(left);
-  rightMotor1.set(-right);
-  rightMotor2.set(-right);
+  differentialDrive.arcadeDrive(joy1.getRawAxis(1), joy1.getRawAxis(4));
+  //leftMotor2.set(left);
+  //rightMotor1.set(-right);
+  //rightMotor2.set(-right);
   }
 
   @Override
