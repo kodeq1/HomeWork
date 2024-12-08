@@ -32,6 +32,19 @@ public class Main {
         return arr1;
     }
 
+    static void BubbleSort(int[] a){
+        int i,j,temp;
+        for (i =1;i<a.length;i++){
+            for (j=0;j<a.length;j++){
+                if (a[j]>a[i]){
+                    temp = a[j];
+                    a[j] = a[i];
+                    a[i] = temp;
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Random rnd = new Random();
         Scanner scanner = new Scanner(System.in);
@@ -45,7 +58,7 @@ public class Main {
         SarrayUppercase(isimler);
         System.out.println("kaçıncı ismi değiştireceksiniz:");
         int i = scanner.nextInt();
-        scanner.nextLine();;
+        scanner.nextLine();
         System.out.println("ne ile değiştireceksiniz");
         isimler[i]= scanner.nextLine();
         System.out.println("Arrayin değiştirilmiş hali:");
@@ -54,7 +67,7 @@ public class Main {
         i = scanner.nextInt();
          isimler1=kaldır(isimler,i);
         System.out.println("slinmiş hali");
-        ArrayYazdır(isimler1);;
+        ArrayYazdır(isimler1);
 
 
         int[] sayiDizisi = new int[3];
@@ -71,7 +84,7 @@ public class Main {
         for (int c=0;c<15;c++){
         randİnt[c]= rnd.nextInt();
         }
-        Arrays.sort(randİnt);
+        BubbleSort(randİnt);
         ArrayYazdır(randİnt);
     }
 }
