@@ -1,0 +1,28 @@
+public class user {
+    int Variable;
+
+    public user(int Variable){
+        this.Variable = Variable;
+    }
+    public int getVariable(){
+        return this.Variable;
+    }
+    public int setVariable(int a){
+        return this.Variable=a;
+    }
+
+}
+import java.util.*;
+
+
+public class Main {
+
+
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        user a = new user(15);
+        System.out.println(a.getVariable());
+        System.out.println("değer değiştirin");
+        System.out.println(a.setVariable(scn.nextInt()));
+    }
+}
