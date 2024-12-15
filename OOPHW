@@ -1,16 +1,54 @@
 public class user {
-    int Variable;
+    String Email;
+    String Password;
+    int Age;
+    String Interests;
 
-    public user(int Variable){
-        this.Variable = Variable;
-    }
-    public int getVariable(){
-        return this.Variable;
-    }
-    public int setVariable(int a){
-        return this.Variable=a;
+    public user(String Email,String Password,int Age,String Interests){
+        this.Email = Email;
+        this.Password = Password;
+        this.Age = Age;
+        this.Interests = Interests;
     }
 
+    public String getInterests() {
+        return Interests;
+    }
+
+    public void setInterests(String interests) {
+        this.Interests = interests;
+    }
+
+    public int getAge() {
+        return Age;
+    }
+
+    public void setAge(int age) {
+        Age = age;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
+
+    public String getEmail(){
+        return this.Email;
+    }
+    public String setEmail(String Email){
+        return this.Email =Email;
+    }
+
+    public void print(){
+        System.out.println(this.Email);
+        System.out.println(this.Password);
+        System.out.println(this.Age);
+        System.out.println(this.Interests);
+
+    }
 }
 import java.util.*;
 
@@ -18,11 +56,26 @@ import java.util.*;
 public class Main {
 
 
+    public static void print(user user){
+        System.out.println(user.getEmail());
+        System.out.println(user.getPassword());
+        System.out.println(user.getAge());
+        System.out.println(user.getInterests());
+    }
+
     public static void main(String[] args) {
-        Scanner scn = new Scanner(System.in);
-        user a = new user(15);
-        System.out.println(a.getVariable());
-        System.out.println("değer değiştirin");
-        System.out.println(a.setVariable(scn.nextInt()));
+        Scanner scanner = new Scanner(System.in);
+        user user = new user("randomemail@gmail.com","randomPassword",17,"Sports,VideoGames");
+        System.out.println("Default parametreler");
+        user.print();
+        System.out.println("değiştirmek için giriş yapınız");
+        user.setEmail(scanner.nextLine());
+        user.setPassword(scanner.nextLine());
+        user.setInterests(scanner.nextLine());
+        user.setAge(scanner.nextInt());
+        System.out.println("yeniden tanımlanmış bilgiler: ");
+        print(user);
+
+
     }
 }
